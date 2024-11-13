@@ -61,12 +61,21 @@
             font-size: 18px;
             margin-top: 20px;
         }
+        .pro-tip {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            color: #555;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>MixBot Stat Calculator</h1>
-        <img src="bub.png" alt="MixBot" class="mixbot-image"> <!-- Make sure your image file is named correctly -->
+        <img src="image.png" alt="MixBot" class="mixbot-image"> <!-- Make sure your image file is named correctly -->
 
         <div class="dropdown-container">
             <div class="dropdown-wrapper">
@@ -155,6 +164,13 @@
         <button onclick="calculateStats()">Calculate Stats</button>
 
         <div id="result" class="stat-output"></div>
+
+        <div class="pro-tip">
+            <strong>Pro Tip:</strong> It doesn't matter which specific body part slot you put each MixBot part in—what's important is that you've selected the correct total parts. For example, if your MixBot in Magic Eden has the following parts: 
+            <em>KNG, LZRD, KNG, LZRD, KNG, KNG</em>, you can place them in any of the available slots. 
+            The order doesn’t matter, just make sure you select the correct total parts to get the accurate stats! 
+            But remember, if you miss or add an extra part, the result will change, and the stats will not match.
+        </div>
     </div>
 
     <script>
