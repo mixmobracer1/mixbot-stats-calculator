@@ -1,70 +1,107 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f7f7f7;
-}
-
-.container {
-    background-color: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    text-align: center;
+    background-color: #f4f4f4;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    width: 200px;
 }
 
-#mixbot-image-container {
-    margin-bottom: 20px;
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#mixbot-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+#left-side, #right-side {
+    display: flex;
+    flex-direction: column;
 }
 
-.dropdown {
-    margin: 10px 0;
-    text-align: left;
+#image-container {
+    position: relative;
+    display: inline-block;
 }
 
-label {
-    font-weight: bold;
+#mixbotImage {
+    width: 528px; /* Use the actual width of the image */
+    height: 473px; /* Use the actual height of the image */
+    margin: 20px;
 }
 
-select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+#line-top-body, #line-head, #line-bottom-body, #line-shoulders, #line-arms, #line-legs {
+    position: absolute;
+    background-color: black;
+    height: 2px;
+    width: 100px; /* You can adjust the width */
+    border-radius: 10px;
+}
+
+#line-top-body {
+    top: 50px;
+    left: 140px; /* Adjust based on where the top body part is */
+    transform: rotate(45deg);
+}
+
+#line-head {
+    top: 120px;
+    left: 160px; /* Adjust for head position */
+    transform: rotate(30deg);
+}
+
+#line-bottom-body {
+    top: 300px;
+    left: 160px; /* Adjust for bottom body position */
+    transform: rotate(-30deg);
+}
+
+#line-shoulders {
+    top: 100px;
+    left: 220px; /* Adjust for shoulder position */
+    transform: rotate(10deg);
+}
+
+#line-arms {
+    top: 180px;
+    left: 220px; /* Adjust for arm position */
+    transform: rotate(15deg);
+}
+
+#line-legs {
+    top: 380px;
+    left: 210px; /* Adjust for leg position */
+    transform: rotate(-10deg);
 }
 
 button {
-    padding: 10px 15px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-#results {
-    margin-top: 20px;
+#result {
     font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#left-side, #right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#left-side select, #right-side select {
+    margin: 10px;
 }
