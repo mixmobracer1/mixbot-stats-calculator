@@ -4,112 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MixBot Stat Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            align-items: center;
+        }
+
+        .left-side,
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .part-label {
+            font-weight: bold;
+            margin: 10px 0;
+            border: 2px solid black;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        #bub-image {
+            width: 300px;
+            height: 270px;
+            margin: 0 50px;
+        }
+
+        .arrows {
+            position: absolute;
+        }
+
+        .arrow {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+            transform: rotate(45deg);
+        }
+
+        .arrow-top-body {
+            left: 20%;
+            top: 10%;
+        }
+
+        .arrow-shoulders {
+            left: 30%;
+            top: 40%;
+        }
+
+        .arrow-head {
+            left: 25%;
+            top: 20%;
+        }
+
+        .arrow-bottom-body {
+            left: 50%;
+            top: 60%;
+        }
+
+        .arrow-arms {
+            left: 45%;
+            top: 50%;
+        }
+
+        .arrow-legs {
+            left: 65%;
+            top: 60%;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>MixBot Stat Calculator</h1>
-    <label for="partsInput">Select MixBot Parts:</label>
+    <div class="container">
+        <div class="left-side">
+            <label class="part-label" for="topBody">Top Body:</label>
+            <select id="topBody">
+                <option value="SLUG">SLUG</option>
+                <option value="HUNTR">HUNTR</option>
+                <option value="GRNT">GRNT</option>
+                <option value="WZRD">WZRD</option>
+                <option value="LZRD">LZRD</option>
+                <option value="FINK">FINK</option>
+                <option value="KNG">KNG</option>
+                <option value="MNSTR">MNSTR</option>
+            </select>
 
-    <!-- Image and Drop-downs -->
-    <div id="image-container">
-        <img src="bub.png" alt="MixBot" id="mixbotImage">
-        
-        <!-- Left side dropdowns -->
-        <div id="part-select-left">
-            <div class="dropdown-container">
-                <label for="topBody">Top Body:</label>
-                <select id="topBody">
-                    <option value="SLUG">SLUG</option>
-                    <option value="HUNTR">HUNTR</option>
-                    <option value="GRNT">GRNT</option>
-                    <option value="WZRD">WZRD</option>
-                    <option value="LZRD">LZRD</option>
-                    <option value="FINK">FINK</option>
-                    <option value="KNG">KNG</option>
-                    <option value="MNSTR">MNSTR</option>
-                </select>
-            </div>
-            <div class="dropdown-container">
-                <label for="head">Head:</label>
-                <select id="head">
-                    <option value="SLUG">SLUG</option>
-                    <option value="HUNTR">HUNTR</option>
-                    <option value="GRNT">GRNT</option>
-                    <option value="WZRD">WZRD</option>
-                    <option value="LZRD">LZRD</option>
-                    <option value="FINK">FINK</option>
-                    <option value="KNG">KNG</option>
-                    <option value="MNSTR">MNSTR</option>
-                </select>
-            </div>
-            <div class="dropdown-container">
-                <label for="bottomBody">Bottom Body:</label>
-                <select id="bottomBody">
-                    <option value="SLUG">SLUG</option>
-                    <option value="HUNTR">HUNTR</option>
-                    <option value="GRNT">GRNT</option>
-                    <option value="WZRD">WZRD</option>
-                    <option value="LZRD">LZRD</option>
-                    <option value="FINK">FINK</option>
-                    <option value="KNG">KNG</option>
-                    <option value="MNSTR">MNSTR</option>
-                </select>
+            <label class="part-label" for="head">Head:</label>
+            <select id="head">
+                <option value="SLUG">SLUG</option>
+                <option value="HUNTR">HUNTR</option>
+                <option value="GRNT">GRNT</option>
+                <option value="WZRD">WZRD</option>
+                <option value="LZRD">LZRD</option>
+                <option value="FINK">FINK</option>
+                <option value="KNG">KNG</option>
+                <option value="MNSTR">MNSTR</option>
+            </select>
+
+            <label class="part-label" for="bottomBody">Bottom Body:</label>
+            <select id="bottomBody">
+                <option value="SLUG">SLUG</option>
+                <option value="HUNTR">HUNTR</option>
+                <option value="GRNT">GRNT</option>
+                <option value="WZRD">WZRD</option>
+                <option value="LZRD">LZRD</option>
+                <option value="FINK">FINK</option>
+                <option value="KNG">KNG</option>
+                <option value="MNSTR">MNSTR</option>
+            </select>
+        </div>
+
+        <div class="centered">
+            <img id="bub-image" src="bub.png" alt="MixBot Base Unit Bot" />
+            <div class="arrows">
+                <div class="arrow arrow-top-body"></div>
+                <div class="arrow arrow-shoulders"></div>
+                <div class="arrow arrow-head"></div>
+                <div class="arrow arrow-bottom-body"></div>
+                <div class="arrow arrow-arms"></div>
+                <div class="arrow arrow-legs"></div>
             </div>
         </div>
 
-        <!-- Right side dropdowns -->
-        <div id="part-select-right">
-            <div class="dropdown-container">
-                <label for="shoulders">Shoulders:</label>
-                <select id="shoulders">
-                    <option value="SLUG">SLUG</option>
-                    <option value="HUNTR">HUNTR</option>
-                    <option value="GRNT">GRNT</option>
-                    <option value="WZRD">WZRD</option>
-                    <option value="LZRD">LZRD</option>
-                    <option value="FINK">FINK</option>
-                    <option value="KNG">KNG</option>
-                    <option value="MNSTR">MNSTR</option>
-                </select>
-            </div>
-            <div class="dropdown-container">
-                <label for="arms">Arms:</label>
-                <select id="arms">
-                    <option value="SLUG">SLUG</option>
-                    <option value="HUNTR">HUNTR</option>
-                    <option value="GRNT">GRNT</option>
-                    <option value="WZRD">WZRD</option>
-                    <option value="LZRD">LZRD</option>
-                    <option value="FINK">FINK</option>
-                    <option value="KNG">KNG</option>
-                    <option value="MNSTR">MNSTR</option>
-                </select>
-            </div>
-            <div class="dropdown-container">
-                <label for="legs">Legs:</label>
-                <select id="legs">
-                    <option value="SLUG">SLUG</option>
-                    <option value="HUNTR">HUNTR</option>
-                    <option value="GRNT">GRNT</option>
-                    <option value="WZRD">WZRD</option>
-                    <option value="LZRD">LZRD</option>
-                    <option value="FINK">FINK</option>
-                    <option value="KNG">KNG</option>
-                    <option value="MNSTR">MNSTR</option>
-                </select>
-            </div>
-        </div>
+        <div class="right-side">
+            <label class="part-label" for="shoulders">Shoulders:</label>
+            <select id="shoulders">
+                <option value="SLUG">SLUG</option>
+                <option value="HUNTR">HUNTR</option>
+                <option value="GRNT">GRNT</option>
+                <option value="WZRD">WZRD</option>
+                <option value="LZRD">LZRD</option>
+                <option value="FINK">FINK</option>
+                <option value="KNG">KNG</option>
+                <option value="MNSTR">MNSTR</option>
+            </select>
 
+            <label class="part-label" for="arms">Arms:</label>
+            <select id="arms">
+                <option value="SLUG">SLUG</option>
+                <option value="HUNTR">HUNTR</option>
+                <option value="GRNT">GRNT</option>
+                <option value="WZRD">WZRD</option>
+                <option value="LZRD">LZRD</option>
+                <option value="FINK">FINK</option>
+                <option value="KNG">KNG</option>
+                <option value="MNSTR">MNSTR</option>
+            </select>
+
+            <label class="part-label" for="legs">Legs:</label>
+            <select id="legs">
+                <option value="SLUG">SLUG</option>
+                <option value="HUNTR">HUNTR</option>
+                <option value="GRNT">GRNT</option>
+                <option value="WZRD">WZRD</option>
+                <option value="LZRD">LZRD</option>
+                <option value="FINK">FINK</option>
+                <option value="KNG">KNG</option>
+                <option value="MNSTR">MNSTR</option>
+            </select>
+        </div>
     </div>
 
     <button onclick="calculateStats()">Calculate Stats</button>
-
     <div id="result"></div>
 
     <script>
         function calculateStats() {
-            // Define the stat changes for each part
-            const parts = {
+            let parts = {
                 "SLUG": {maxSpeed: 1, acceleration: -1},
                 "HUNTR": {acceleration: 1, durability: -1},
                 "GRNT": {durability: 1, willpower: -1},
@@ -120,22 +215,21 @@
                 "MNSTR": {willpower: 1, durability: -1}
             };
 
-            // Initialize base stats
             let acceleration = 10;
             let maxSpeed = 10;
             let durability = 10;
             let willpower = 10;
 
-            // Get the selected parts from the dropdowns
-            let topBody = document.getElementById('topBody').value;
-            let head = document.getElementById('head').value;
-            let bottomBody = document.getElementById('bottomBody').value;
-            let shoulders = document.getElementById('shoulders').value;
-            let arms = document.getElementById('arms').value;
-            let legs = document.getElementById('legs').value;
+            let selectedParts = [
+                document.getElementById('topBody').value,
+                document.getElementById('head').value,
+                document.getElementById('bottomBody').value,
+                document.getElementById('shoulders').value,
+                document.getElementById('arms').value,
+                document.getElementById('legs').value
+            ];
 
-            // Update stats based on the selected parts
-            [topBody, head, bottomBody, shoulders, arms, legs].forEach(part => {
+            selectedParts.forEach(part => {
                 if (parts[part]) {
                     acceleration += parts[part].acceleration || 0;
                     maxSpeed += parts[part].maxSpeed || 0;
@@ -144,7 +238,6 @@
                 }
             });
 
-            // Display the final computed stats
             document.getElementById('result').innerHTML = `
                 Acceleration: ${acceleration} <br>
                 Max Speed: ${maxSpeed} <br>
