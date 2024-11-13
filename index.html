@@ -30,7 +30,7 @@
             margin-top: 20px;
         }
         .mixbot-image {
-            width: 300px; /* Adjusted image size */
+            width: 300px; /* The image will expand naturally */
             margin-bottom: 20px;
         }
         .dropdown-container {
@@ -111,4 +111,92 @@
             <div class="dropdown-wrapper">
                 <label for="shoulders" class="dropdown-label">Shoulders:</label>
                 <select id="shoulders">
-           
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <option value="WZRD">WZRD</option>
+                    <option value="LZRD">LZRD</option>
+                    <option value="FINK">FINK</option>
+                    <option value="KNG">KNG</option>
+                    <option value="MNSTR">MNSTR</option>
+                </select>
+            </div>
+            <div class="dropdown-wrapper">
+                <label for="arms" class="dropdown-label">Arms:</label>
+                <select id="arms">
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <option value="WZRD">WZRD</option>
+                    <option value="LZRD">LZRD</option>
+                    <option value="FINK">FINK</option>
+                    <option value="KNG">KNG</option>
+                    <option value="MNSTR">MNSTR</option>
+                </select>
+            </div>
+            <div class="dropdown-wrapper">
+                <label for="legs" class="dropdown-label">Legs:</label>
+                <select id="legs">
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <option value="WZRD">WZRD</option>
+                    <option value="LZRD">LZRD</option>
+                    <option value="FINK">FINK</option>
+                    <option value="KNG">KNG</option>
+                    <option value="MNSTR">MNSTR</option>
+                </select>
+            </div>
+        </div>
+
+        <button onclick="calculateStats()">Calculate Stats</button>
+
+        <div id="result" class="stat-output"></div>
+    </div>
+
+    <script>
+        function calculateStats() {
+            let parts = {
+                "SLUG": {maxSpeed: 1, acceleration: -1},
+                "HUNTR": {acceleration: 1, durability: -1},
+                "GRNT": {durability: 1, willpower: -1},
+                "WZRD": {willpower: 1, maxSpeed: -1},
+                "LZRD": {maxSpeed: 1, willpower: -1},
+                "FINK": {acceleration: 1, maxSpeed: -1},
+                "KNG": {durability: 1, acceleration: -1},
+                "MNSTR": {willpower: 1, durability: -1}
+            };
+
+            let acceleration = 10;
+            let maxSpeed = 10;
+            let durability = 10;
+            let willpower = 10;
+
+            let selectedParts = {
+                topBody: document.getElementById('topBody').value,
+                head: document.getElementById('head').value,
+                bottomBody: document.getElementById('bottomBody').value,
+                shoulders: document.getElementById('shoulders').value,
+                arms: document.getElementById('arms').value,
+                legs: document.getElementById('legs').value
+            };
+
+            Object.values(selectedParts).forEach(part => {
+                if (parts[part]) {
+                    acceleration += parts[part].acceleration || 0;
+                    maxSpeed += parts[part].maxSpeed || 0;
+                    durability += parts[part].durability || 0;
+                    willpower += parts[part].willpower || 0;
+                }
+            });
+
+            document.getElementById('result').innerHTML = `
+                Acceleration: ${acceleration} <br>
+                Max Speed: ${maxSpeed} <br>
+                Durability: ${durability} <br>
+                Willpower: ${willpower}
+            `;
+        }
+    </script>
+</body>
+</html>
