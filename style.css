@@ -16,6 +16,7 @@ input, button, select {
     width: 528px;
     height: 473px;
     margin: 20px auto;
+    text-align: center;
 }
 
 #mixbotImage {
@@ -23,7 +24,7 @@ input, button, select {
     height: auto;
 }
 
-#part-select, #part-select-right {
+#part-select-left, #part-select-right {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -32,7 +33,7 @@ input, button, select {
     transform: translate(-50%, -50%);
 }
 
-#part-select {
+#part-select-left {
     position: absolute;
     left: 10%;
 }
