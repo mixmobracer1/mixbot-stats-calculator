@@ -100,19 +100,58 @@
             </div>
         </div>
 
-        <!-- Lines/Arrows -->
-        <div id="line-top-body"></div>
-        <div id="line-head"></div>
-        <div id="line-bottom-body"></div>
-        <div id="line-shoulders"></div>
-        <div id="line-arms"></div>
-        <div id="line-legs"></div>
     </div>
 
     <button onclick="calculateStats()">Calculate Stats</button>
 
     <div id="result"></div>
 
-    <script src="script.js"></script>
+    <script>
+        function calculateStats() {
+            // Define the stat changes for each part
+            const parts = {
+                "SLUG": {maxSpeed: 1, acceleration: -1},
+                "HUNTR": {acceleration: 1, durability: -1},
+                "GRNT": {durability: 1, willpower: -1},
+                "WZRD": {willpower: 1, maxSpeed: -1},
+                "LZRD": {maxSpeed: 1, willpower: -1},
+                "FINK": {acceleration: 1, maxSpeed: -1},
+                "KNG": {durability: 1, acceleration: -1},
+                "MNSTR": {willpower: 1, durability: -1}
+            };
+
+            // Initialize base stats
+            let acceleration = 10;
+            let maxSpeed = 10;
+            let durability = 10;
+            let willpower = 10;
+
+            // Get the selected parts from the dropdowns
+            let topBody = document.getElementById('topBody').value;
+            let head = document.getElementById('head').value;
+            let bottomBody = document.getElementById('bottomBody').value;
+            let shoulders = document.getElementById('shoulders').value;
+            let arms = document.getElementById('arms').value;
+            let legs = document.getElementById('legs').value;
+
+            // Update stats based on the selected parts
+            [topBody, head, bottomBody, shoulders, arms, legs].forEach(part => {
+                if (parts[part]) {
+                    acceleration += parts[part].acceleration || 0;
+                    maxSpeed += parts[part].maxSpeed || 0;
+                    durability += parts[part].durability || 0;
+                    willpower += parts[part].willpower || 0;
+                }
+            });
+
+            // Display the final computed stats
+            document.getElementById('result').innerHTML = `
+                Acceleration: ${acceleration} <br>
+                Max Speed: ${maxSpeed} <br>
+                Durability: ${durability} <br>
+                Willpower: ${willpower}
+            `;
+        }
+    </script>
 </body>
 </html>
