@@ -2,92 +2,48 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
     background-color: #f4f4f4;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
-input, select, button {
+input, button, select {
     padding: 10px;
     font-size: 16px;
     margin: 10px;
     width: 200px;
 }
 
-#container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#left-side, #right-side {
-    display: flex;
-    flex-direction: column;
-}
-
 #image-container {
     position: relative;
-    display: inline-block;
+    width: 528px;
+    height: 473px;
+    margin: 20px auto;
 }
 
 #mixbotImage {
-    width: 528px; /* Use the actual width of the image */
-    height: 473px; /* Use the actual height of the image */
-    margin: 20px;
+    width: 100%;
+    height: auto;
 }
 
-#line-top-body, #line-head, #line-bottom-body, #line-shoulders, #line-arms, #line-legs {
+#part-select, #part-select-right {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    background-color: black;
-    height: 2px;
-    width: 100px; /* You can adjust the width */
-    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#line-top-body {
-    top: 50px;
-    left: 140px; /* Adjust based on where the top body part is */
-    transform: rotate(45deg);
+#part-select {
+    position: absolute;
+    left: 10%;
 }
 
-#line-head {
-    top: 120px;
-    left: 160px; /* Adjust for head position */
-    transform: rotate(30deg);
+#part-select-right {
+    position: absolute;
+    right: 10%;
 }
 
-#line-bottom-body {
-    top: 300px;
-    left: 160px; /* Adjust for bottom body position */
-    transform: rotate(-30deg);
-}
-
-#line-shoulders {
-    top: 100px;
-    left: 220px; /* Adjust for shoulder position */
-    transform: rotate(10deg);
-}
-
-#line-arms {
-    top: 180px;
-    left: 220px; /* Adjust for arm position */
-    transform: rotate(15deg);
-}
-
-#line-legs {
-    top: 380px;
-    left: 210px; /* Adjust for leg position */
-    transform: rotate(-10deg);
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
+.dropdown-container {
+    margin-bottom: 10px;
 }
 
 #result {
@@ -96,12 +52,39 @@ button:hover {
     margin-top: 20px;
 }
 
-#left-side, #right-side {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+#line-top-body, #line-head, #line-bottom-body, #line-shoulders, #line-arms, #line-legs {
+    position: absolute;
+    background-color: black;
+    width: 2px;
+    height: 40px;
 }
 
-#left-side select, #right-side select {
-    margin: 10px;
+#line-top-body {
+    top: 10%;
+    left: 40%;
+}
+
+#line-head {
+    top: 20%;
+    left: 45%;
+}
+
+#line-bottom-body {
+    top: 30%;
+    left: 40%;
+}
+
+#line-shoulders {
+    top: 20%;
+    right: 40%;
+}
+
+#line-arms {
+    top: 30%;
+    right: 40%;
+}
+
+#line-legs {
+    top: 40%;
+    right: 40%;
 }
