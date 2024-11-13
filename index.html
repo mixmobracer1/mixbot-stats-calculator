@@ -4,67 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MixBot Stat Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-        #image-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        #mixbotImage {
-            width: 400px; /* Adjust size of the MixBot image */
-            height: auto;
-        }
-        .dropdown-container {
-            margin: 10px;
-        }
-        #part-select-left, #part-select-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-        #part-select-left {
-            margin-right: 40px;
-        }
-        #part-select-right {
-            margin-left: 40px;
-        }
-        select {
-            padding: 10px;
-            font-size: 16px;
-            margin: 5px 0;
-            width: 200px;
-        }
-        button {
-            padding: 10px;
-            font-size: 16px;
-            margin: 20px;
-            cursor: pointer;
-            width: 200px;
-        }
-        #result {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>MixBot Stat Calculator</h1>
     <label for="partsInput">Select MixBot Parts:</label>
 
+    <!-- Image and Drop-downs -->
     <div id="image-container">
-        <!-- Image of MixBot -->
         <img src="bub.png" alt="MixBot" id="mixbotImage">
         
         <!-- Left side dropdowns -->
@@ -152,6 +99,7 @@
                 </select>
             </div>
         </div>
+
     </div>
 
     <button onclick="calculateStats()">Calculate Stats</button>
@@ -160,6 +108,7 @@
 
     <script>
         function calculateStats() {
+            // Define the stat changes for each part
             const parts = {
                 "SLUG": {maxSpeed: 1, acceleration: -1},
                 "HUNTR": {acceleration: 1, durability: -1},
@@ -171,12 +120,13 @@
                 "MNSTR": {willpower: 1, durability: -1}
             };
 
+            // Initialize base stats
             let acceleration = 10;
             let maxSpeed = 10;
             let durability = 10;
             let willpower = 10;
 
-            // Get the selected parts
+            // Get the selected parts from the dropdowns
             let topBody = document.getElementById('topBody').value;
             let head = document.getElementById('head').value;
             let bottomBody = document.getElementById('bottomBody').value;
@@ -184,6 +134,7 @@
             let arms = document.getElementById('arms').value;
             let legs = document.getElementById('legs').value;
 
+            // Update stats based on the selected parts
             [topBody, head, bottomBody, shoulders, arms, legs].forEach(part => {
                 if (parts[part]) {
                     acceleration += parts[part].acceleration || 0;
@@ -193,7 +144,7 @@
                 }
             });
 
-            // Display the calculated stats
+            // Display the final computed stats
             document.getElementById('result').innerHTML = `
                 Acceleration: ${acceleration} <br>
                 Max Speed: ${maxSpeed} <br>
