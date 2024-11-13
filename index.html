@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MixBot Stat Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- MixBot Image -->
+        <div id="mixbot-image-container">
+            <img id="mixbot-image" src="path-to-your-image.jpg" alt="MixBot Base Unit" />
+        </div>
+
+        <h1>MixBot Stat Calculator</h1>
+
+        <!-- Dropdown for selecting body parts -->
+        <form id="mixbot-parts-form">
+            <div class="dropdown">
+                <label for="head">Head:</label>
+                <select id="head">
+                    <option value="default">Select Head</option>
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="dropdown">
+                <label for="shoulders">Shoulders:</label>
+                <select id="shoulders">
+                    <option value="default">Select Shoulders</option>
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <!-- Add more options -->
+                </select>
+            </div>
+
+            <div class="dropdown">
+                <label for="arms">Arms:</label>
+                <select id="arms">
+                    <option value="default">Select Arms</option>
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <!-- Add more options -->
+                </select>
+            </div>
+
+            <div class="dropdown">
+                <label for="upper-body">Upper Body:</label>
+                <select id="upper-body">
+                    <option value="default">Select Upper Body</option>
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <!-- Add more options -->
+                </select>
+            </div>
+
+            <div class="dropdown">
+                <label for="lower-body">Lower Body:</label>
+                <select id="lower-body">
+                    <option value="default">Select Lower Body</option>
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <!-- Add more options -->
+                </select>
+            </div>
+
+            <div class="dropdown">
+                <label for="feet">Feet:</label>
+                <select id="feet">
+                    <option value="default">Select Feet</option>
+                    <option value="SLUG">SLUG</option>
+                    <option value="HUNTR">HUNTR</option>
+                    <option value="GRNT">GRNT</option>
+                    <!-- Add more options -->
+                </select>
+            </div>
+
+            <button type="button" id="get-stats-button">Calculate Stats</button>
+        </form>
+
+        <!-- Results -->
+        <div id="results">
+            <p id="acceleration">Acceleration: </p>
+            <p id="maxspeed">Max Speed: </p>
+            <p id="durability">Durability: </p>
+            <p id="willpower">Willpower: </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
